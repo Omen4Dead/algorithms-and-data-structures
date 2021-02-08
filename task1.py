@@ -71,13 +71,7 @@ def var2(count):
 def var3(count):
     lst = [random.randint(0, 10) for _ in range(count)]
     counter = Counter(lst)
-
-    max_count = 0
-    result = None
-    for number, count in counter.items():
-        if count > max_count:
-            max_count = count
-            result = number
+    result = counter.most_common(1)[0][0]
 
     for key, val in locals().items():
         show(val)
