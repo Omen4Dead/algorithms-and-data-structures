@@ -14,22 +14,23 @@ def find_median(array):
     for i in array:
         less_count = 0
         more_count = 0
-        for j in array:
-            if j < i:
-                less_count += 1
-            elif j > i:
-                more_count += 1
-        if less_count == more_count:
-            return i
+
+        if array.count(i) == 1:
+            for j in array:
+                if j < i:
+                    less_count += 1
+                elif j > i:
+                    more_count += 1
+            if less_count == more_count:
+                return i
 
 
 num = int(input('Введите натуральное число: '))
 lst = [random.randint(-100, 100) for _ in range(2 * num + 1)]
 
+my_median = find_median(lst)
+print(lst)
+print(f'{my_median=}')
+
 # для тестов
-# lst = [random.randint(-100, 100) for _ in range(11)]
-print(lst)
-a = find_median(lst)
-print(lst)
-print(statistics.median(lst))
-print(a)
+print(f"{statistics.median(lst)=}")
